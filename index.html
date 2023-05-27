@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *
+    {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .testimonial
+    {
+      width: 100vw;
+      height: 100vh;
+    }
+    img , #image , .nav , .info
+    {
+      position: absolute;
+    }
+    .info
+    {
+      z-index: 3;
+      top:25%;
+      left:15%;
+      width: 39vw;
+      height: 50vh;
+    }
+    .info p 
+    {
+      font-size:2rem;
+      line-height: 50px;
+    }
+    img:first-child
+    {
+      top:15%;
+      left:17%;
+    }
+    img:nth-child(3)
+    {
+      bottom:0;
+      left:0;
+    }
+    img:nth-child(2)
+    {
+      bottom:7%;
+      right:7%;
+    }
+    .info > div
+    {
+      display: flex;
+      margin-top:40px;
+      gap: 20px;
+    }
+    .info > div > h3:nth-child(2)
+    {
+      font-weight:200;
+      opacity: 0.6;
+    }
+    #image
+    {
+      z-index: 3;
+      width: 550px;
+      height: 500px;
+      background-image: url("images/image-tanya.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.329);
+      bottom: 22%;
+      right: 15%;
+    }
+    .nav
+    {
+      z-index: 4;
+      width: 100px;
+      height: 50px;
+      bottom: 17%;
+      right: 40%;
+      display: flex;
+      border-radius: 50%;
+      box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.393);
+    }
+    .nav button:hover
+    {
+      background-color: rgba(255, 255, 255, 0.831);
+    }
+    .nav button
+    {
+      width:50%;
+      height:100%;
+      line-height: 10px;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      cursor: pointer;
+    }
+    .nav button:nth-child(2)
+    {
+      transform: rotate(180deg);
+    }
+    @media (max-width: 1000px){
+    .info
+    {
+      top:60% !important;
+      left:0% !important;
+      width: 100vw !important;
+      height: 40vh !important;
+      /* background-color: red; */
+    }
+    .info p 
+    {
+      padding:30px !important;
+      font-size:1rem;
+      line-height: 40px;
+      text-align:center !important;
+    }
+    img:first-child
+    {
+      top:65% !important;
+      left:20% !important;
+    }
+    
+    img:nth-child(3)
+    {
+      width: 100vw !important;
+    }
+    
+    img:nth-child(2)
+    {
+      bottom:37% !important;
+      right:0 !important;
+    }
+    .info > div
+    {
+      flex-direction: column;
+      margin-top:40px;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    #image
+    {
+      width: 70vw;
+      height: 400px;
+      bottom: 52%;
+      right: 15%;
+      left: 15%;
+    }
+    .nav
+    {
+      bottom: 50% !important;
+      right: 40%;
+    }
+    }
+    @media (max-width: 1120px) and (min-width: 1000px)
+    {
+    .info p 
+    {
+      font-size: 1.5rem ;
+      line-height: 30px;
+    }
+    }
+    @media (max-width: 1329px) and (min-width: 1000px)
+    {
+      .info
+      {
+        left:10%;
+        width: 30vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="testimonial">
+    <img src="./images/pattern-quotes.svg" alt="">
+    <img src="./images/pattern-bg.svg" alt="">
+    <img src="./images/pattern-curve.svg" alt="">
+    <div id="image">
+      
+    </div>
+    <div class="nav">
+      <button id="prev"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="18"><path fill="none" stroke="#8585AC" stroke-width="3" d="M11 1L3 9l8 8"/></svg></button>
+      <button id="next"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="18"><path fill="none" stroke="#8585AC" stroke-width="3" d="M11 1L3 9l8 8"/></svg></button>
+    </div>
+    <div class="info">
+      <p id="testi">
+        “ I’ve been interested in coding for a while but never taken the jump, until now. 
+  I couldn’t recommend this course enough. I’m now in the job of my dreams and so 
+  excited about the future. ”
+      </p>
+      <div>
+        <h3 id="name">Tanya Sinclair</h3>
+        <h3 id="title">UX Engineer</h3>
+      </div>
+    </div>
+  </div>
+  <script>
+    let testimonials = [
+    {
+        name:"John Tarkpor",
+        title:"Junior Front-end Developer",
+        testi : "\“ If you want to lay the best foundation possible I’d recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer. \”",
+        url : "url(./images/image-john.jpg)"
+    },
+    {
+        name:"Tanya Sinclair",
+        title:"UX Engineer",
+        testi : "\“ I’ve been interested in coding for a while but never taken the jump, until now. I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future.\”",
+        url : "url(./images/image-tanya.jpg)"
+    }
+];
+let show=(i)=>
+{
+    const name = document.querySelector("#name");
+    const title = document.querySelector("#title");
+    const testimo = document.querySelector("#testi");
+    const image = document.querySelector("#image");
+    name.innerHTML = testimonials[i].name;
+    title.innerHTML = testimonials[i].title;
+    testimo.innerHTML = testimonials[i].testi;
+    image.style.backgroundImage = testimonials[i].url;
+}
+let i = 0;
+const navs = document.querySelectorAll(".nav button");
+navs.forEach(x=>x.addEventListener("click", () =>
+{
+    show(i);
+    if(i===0)
+        i=1;
+    else
+        i=0;
+}));
+  </script>
+</body>
+</html>
